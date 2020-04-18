@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var schema = mongoose.Schema;
 
 var materialSchema = new schema({
-    file: { data: Buffer, 
-        contentType: String }
+    file: { 
+        type: String }
 });
 module.exports = mongoose.model('Material', materialSchema);

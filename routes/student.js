@@ -20,7 +20,7 @@ router.get('/viewquiz', function(req, res, next) {
   });
 });
 router.get('/viewassignment', function(req, res, next) {
-  Teacher.find().sort('question').exec(function(error, results) {
+  Assignment.find().sort('question').exec(function(error, results) {
       if (error) {
           return next(error);
       }

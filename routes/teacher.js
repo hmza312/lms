@@ -82,7 +82,7 @@ router.post('/addassignment', function(req, res, next) {
 router.post('/addmarks', function(req, res, next) {
   Marks.create(req.body)
       .then((marks) => {
-          console.log('Quiz has been Added ',  marks);
+          console.log('marks has been Added ',  marks);
           res.statusCode = 200;
           res.setHeader('Content-Type', 'application/json');
           res.json(marks);
@@ -92,7 +92,7 @@ router.post('/addmarks', function(req, res, next) {
 router.post('/addmat', function(req, res, next) {
   Material.create(req.body)
       .then((file) => {
-          console.log('Student has been Added ', file);
+          console.log('MAterial has been Added ', file);
           res.statusCode = 200;
           res.setHeader('Content-Type', 'application/json');
           res.json(file);

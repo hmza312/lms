@@ -3,10 +3,10 @@ var mongoose = require('mongoose');
 var schema = mongoose.Schema;
 
 var quizSchema = new schema({
-    question: {
-        type: [ 
-            {String,
-       }]
-    }
+    question: [  
+            [String,
+            ]
+        ],
+
 });
 module.exports = mongoose.model('Quiz', quizSchema);
