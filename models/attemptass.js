@@ -3,14 +3,14 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var attemptassSchema = new Schema({
   
-    Answer:[  
-        [String,
-        ]
-    ],
-    // question: {
-    //     type: Array,
-    //     required: true
-    // },
+    // Answer:[  
+    //     [String,
+    //     ]
+    // ],
+    Answer: {
+        type: Array,
+        required: true
+    },
   
     question: {
         type: [{

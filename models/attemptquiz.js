@@ -3,10 +3,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var attemptSchema = new Schema({
   
-    Answer:[  
-        [String,
-        ]
-    ],
+    Answer: {
+        type: Array,
+        required: true
+    },
     
     question: {
         type: [{
