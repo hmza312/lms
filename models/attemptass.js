@@ -3,11 +3,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var attemptassSchema = new Schema({
   
-    Answer: {
-        type: [ 
-            {String,
-       }]
-    },
+    Answer:[  
+        [String,
+        ]
+    ],
     question: {
         type: [{
             qid: {
