@@ -7,6 +7,11 @@ var attemptassSchema = new Schema({
         [String,
         ]
     ],
+    // question: {
+    //     type: Array,
+    //     required: true
+    // },
+  
     question: {
         type: [{
             qid: {

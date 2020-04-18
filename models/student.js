@@ -8,6 +8,12 @@ var studentSchema = new Schema({
     rollno: {
         type: String,
         required: true
+    },
+    marks:{
+        
+            type: mongoose.Types.ObjectId,
+            ref: 'Marks'
+        
     }
 });
 

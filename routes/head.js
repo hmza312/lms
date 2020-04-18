@@ -24,7 +24,7 @@ router.get('/graph', function(req, res, next) {
    
     });
 router.get('/result', function(req, res, next) {
-  Marks.find({}).populate('class').populate('quiz').populate('assignment').exec(function(error, results) {
+  Class.find({}).populate('class').populate('Teacher').populate('students.sid').exec(function(error, results) {
     if (error) {
         return next(error);
     }
