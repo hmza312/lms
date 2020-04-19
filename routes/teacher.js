@@ -100,8 +100,8 @@ router.post('/addmat', function(req, res, next) {
       .catch((err) => next(err));
 });
 //put
-router.put('/marks/:mid', function(req, res, next) {
-  Marks.findOneAndUpdate({ _id: req.params.cid }, { name: req.params.body }, function(error, results) {
+router.put('/marks/:mid/:number', function(req, res, next) {
+  Marks.findOneAndUpdate({ _id: req.params.mid }, { number: req.params.number }, function(error, results) {
       if (error) {
           return next(error);
       }

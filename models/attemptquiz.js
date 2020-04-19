@@ -9,13 +9,12 @@ var attemptSchema = new Schema({
     },
     
     question: {
-        type: [{
-            qid: {
+       
                 type: mongoose.Types.ObjectId,
                 ref: 'Quiz'
             }
-        }]
-    }
+     
+    
 });
 
 module.exports = mongoose.model('AttemptQuiz', attemptSchema);

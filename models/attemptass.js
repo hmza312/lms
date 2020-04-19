@@ -13,12 +13,9 @@ var attemptassSchema = new Schema({
     },
   
     question: {
-        type: [{
-            qid: {
-                type: mongoose.Types.ObjectId,
-                ref: 'Assignment'
-            }
-        }]
+       
+        type: mongoose.Types.ObjectId,
+        ref: 'Assignment'
     }
 });
 

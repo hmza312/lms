@@ -44,7 +44,7 @@ router.get('/material', function(req, res, next) {
 });
 
 router.get('/result/class/:id', function(req, res, next) {
-  Marks.find({ _id: req.params.id }).populate('class').populate('quiz').populate('assignment').exec(function(error, results) {
+  Class.find({ _id: req.params.id }).populate('teacher').populate('students.sid').exec(function(error, results) {
       if (error) {
           return next(error);
       }
@@ -52,15 +52,7 @@ router.get('/result/class/:id', function(req, res, next) {
       res.json(results);
   });
 });
-router.get('/result/class/:id', function(req, res, next) {
-  Marks.find({ _id: req.params.id }).populate('class').populate('students.sid').populate('quiz').populate('assignment').exec(function(error, results) {
-      if (error) {
-          return next(error);
-      }
-      // Respond with valid data
-      res.json(results);
-  });
-});
+
 
 router.get('/result/students/:id', function(req, res, next) {
   Student.findById(req.params.id)

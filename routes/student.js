@@ -5,6 +5,9 @@ var Assignment = require('../models/assignment');
 var Marks = require('../models/marks');
 var AttempQuiz = require('../models/attemptquiz');
 var AttemptAss = require('../models/attemptass');
+var Class = require('../models/class');
+var Teacher = require('../models/teacher');
+var Student = require('../models/student');
 var Material = require('../models/material');
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -50,7 +53,7 @@ router.get('/material/:subid', function(req, res, next) {
 });
 
 router.get('/result', function(req, res, next) {
-  Marks.find({}).populate('class').populate('quiz').populate('assignment').exec(function(error, results) {
+  Marks.find().sort('number').exec(function(error, results) {
     if (error) {
         return next(error);
     }
@@ -89,5 +92,31 @@ router.post('/submitassignment', function(req, res, next) {
       }, (err) => next(err))
       .catch((err) => next(err));
 });
-
+router.put('/student/:cid/marks/:tid', function(req, res, next) {
+  Student.findOneAndUpdate({ _id: req.params.cid }, { marks: req.params.tid }, function(error, results) {
+      if (error) {
+          return next(error);
+      }
+      // Respond with valid data
+      res.json(results);
+  });
+});
+router.put('/attquiz/:cid/question/:tid', function(req, res, next) {
+  AttempQuiz.findOneAndUpdate({ _id: req.params.cid }, { question: req.params.tid }, function(error, results) {
+      if (error) {
+          return next(error);
+      }
+      // Respond with valid data
+      res.json(results);
+  });
+});
+router.put('/attempass/:cid/question/:tid', function(req, res, next) {
+  AttemptAss.findOneAndUpdate({ _id: req.params.cid }, { question: req.params.tid }, function(error, results) {
+      if (error) {
+          return next(error);
+      }
+      // Respond with valid data
+      res.json(results);
+  });
+});
 module.exports = router;
