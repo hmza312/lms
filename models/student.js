@@ -11,7 +11,7 @@ var studentSchema = new Schema({
     },
     marks:{
         
-            type: mongoose.Types.ObjectId,
+            type: Schema.Types.ObjectId,
             ref: 'Marks'
         
     }

@@ -8,44 +8,45 @@ var AttemptAss = require('../models/attemptass');
 var Material = require('../models/material');
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('Welcome to teacher Section');
+  res.send('<h1>Welcome to teacher Section</h1>');
 });
 router.get('/viewquiz', function(req, res, next) {
-  AttempQuiz.find().exec(function(error, results) {
-      if (error) {
-          return next(error);
-      }
-      // Respond with valid data
-      res.json(results);
-  });
+  AttempQuiz.find().populate('question').exec(function(error, results) {
+    if (error) {
+        return next(error);
+    }
+    // Respond with valid data
+    res.json(results);
+});
 });
 router.get('/viewquiz:qid', function(req, res, next) {
   AttempQuiz.findById(req.params.subid)
-      .then((ques) => {
-          res.statusCode = 200;
-          res.setHeader('Content-Type', 'application/json');
-          res.json(ques);
-      }, (err) => next(err))
-      .catch((err) => next(err));
-
+  .populate('question').exec(function(error, results) {
+    if (error) {
+        return next(error);
+    }
+    // Respond with valid data
+    res.json(results);
+});
 });
 router.get('/viewattassign', function(req, res, next) {
-  AttemptAss.find().exec(function(error, results) {
-      if (error) {
-          return next(error);
-      }
-      // Respond with valid data
-      res.json(results);
-  });
+  AttemptAss.find().populate('question').exec(function(error, results) {
+    if (error) {
+        return next(error);
+    }
+    // Respond with valid data
+    res.json(results);
+});
 });
 router.get('/viewattassign:qid', function(req, res, next) {
   AttemptAss.findById(req.params.subid)
-      .then((ques) => {
-          res.statusCode = 200;
-          res.setHeader('Content-Type', 'application/json');
-          res.json(ques);
-      }, (err) => next(err))
-      .catch((err) => next(err));
+  .populate('question').exec(function(error, results) {
+    if (error) {
+        return next(error);
+    }
+    // Respond with valid data
+    res.json(results);
+});
 
 });
 router.get('/material', function(req, res, next) {

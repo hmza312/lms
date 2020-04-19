@@ -7,7 +7,7 @@ var Student = require('../models/student');
 
 /* GET Operations */
 router.get('/', function(req, res, next) {
-    res.send('respond with a resource');
+    res.send('<h1>Welcome to Admin Panel</h1>');
 
 });
 router.get('/classes', function(req, res, next) {
@@ -103,6 +103,22 @@ router.put('/assign/:cid/Student/:sid', function(req, res, next) {
             "$push": {
                 "students": {
                     "sid": req.params.sid
+                }
+            }
+        }, { new: true, upsert: false },
+        function(error, results) {
+            if (error) {
+                return next(error);
+            }
+            // Respond with valid data
+            res.json(results);
+        });
+});
+router.put('/assign/:cid/Studentmarks/:sid', function(req, res, next) {
+    Class.findOneAndUpdate({ _id: req.params.cid }, {
+            "$push": {
+                "students": {
+                    "marks": req.params.sid
                 }
             }
         }, { new: true, upsert: false },

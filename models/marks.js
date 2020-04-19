@@ -5,7 +5,7 @@ var schema = mongoose.Schema;
 var markSchema = new schema({
   
     number: {
-        type: String,
+        type: Number,
         required: true,
     }
 

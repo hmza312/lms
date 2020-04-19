@@ -15,7 +15,12 @@ var classSchema = new Schema({
             sid: {
                 type: mongoose.Types.ObjectId,
                 ref: 'Student'
+            },
+            marks:{
+                type: mongoose.Types.ObjectId,
+                ref: 'Marks'
             }
+            
         }]
     }
 });

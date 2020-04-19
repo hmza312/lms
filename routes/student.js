@@ -11,7 +11,7 @@ var Student = require('../models/student');
 var Material = require('../models/material');
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('Welcome to Student section');
+  res.send('<h1>Welcome to Student section</h1>');
 });
 router.get('/viewquiz', function(req, res, next) {
   Quiz.find().sort('question').exec(function(error, results) {
