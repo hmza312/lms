@@ -7,7 +7,7 @@ var Student = require('../models/student');
 
 /* GET Operations */
 router.get('/', function(req, res, next) {
-    res.send('<h1>Welcome to Admin Panel</h1>');
+    res.send('<h1 style="color:blue">Welcome to Admin Panel</h1>');
 
 });
 router.get('/classes', function(req, res, next) {
